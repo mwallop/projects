@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      JavaScript 6th Edition  v 1.16
+     
+
+      Individual Project Template
+  
+      Author: michael wallop
+      Date:   
+
+      Filename: page 2.html
+   -->
+  <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0">
+   <title>Individual Student Project Template 1</title>
+   <link rel="stylesheet" media="screen and (max-device-width: 999px)" href="projhand.css" />
+   <link rel="stylesheet" media="screen and (min-device-width: 1000px)" href="project.css" />
+ 
+     <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+      <header>
+         <h1>
+            <img src="https://cdn.gomix.com/0a1d0928-619c-4c46-a135-f68daa8d0520%2FthBBIMGXA9.jpg" alt="INFO 301 - Student Project" title="" />
+         </h1>
+      </header>
+
+      <nav>
+         <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li id="currentpage"><a href="#">Products</a></li>
+            <li><a href="/page3.html">ContactUs</a></li>
+            <li><a href="/page4.html">Adoption</a></li> 
+        <li><a href="/page5.html">About</a></li>
+        </ul>
+      </nav>
+        <!--
+      below I added a header and put all my products with pictures 
+	-->  
+      <article>
+         <h2>Our Original Mittens</h2>
+        <!--below i added checkboxes and changed the names to labels
+-->
+        
+       <p>
+        <input type="checkbox" id="item1" value="15" />
+         <label for="item1">Tom & Jerrys ($15.00)</label>
+        </p>
+        <p>
+        <img src="https://cdn.gomix.com/0a1d0928-619c-4c46-a135-f68daa8d0520%2Fimg-thing.jpg" />
+        </p>
+        <p>
+        <input type="checkbox" id="item2" value="20" />
+         <label for="item2">Snow Mittens ($20.00)</label>
+        </p>
+        <p>       
+        <img src="https://cdn.gomix.com/0a1d0928-619c-4c46-a135-f68daa8d0520%2F6aded29de15f01a0e6b2b823f9a6db51.jpg" />
+        </p>
+        <p>
+        <input type="checkbox" id="item3" value="30" />
+         <label for="item3">Hot Plate Protectors ($30.00)</label></p>
+        <p>  <img src="https://cdn.gomix.com/0a1d0928-619c-4c46-a135-f68daa8d0520%2Fo-CAT-IN-KITTEN-MITTEN-BOOTS-570.jpg" />
+        </p>
+        <p> 
+        <input type="checkbox" id="item4" value="25" />
+         <label for="item4">Oh Canada ($25.00)</label></p>
+         <p>
+           <img src="https://cdn.gomix.com/0a1d0928-619c-4c46-a135-f68daa8d0520%2Fcanada-600x600.jpg" />
+        </p>
+        <p>
+          Total is displayed at the top of page
+        </p>
+        <p>
+          <input type="button" id="sButton" value="Submit" />
+        </p>
+      </article>
+<div>
+  <p id="total">
+  </p>
+  </div>
+  <script>
+    //Array storing products
+  var products=["Tom & Jerrys ($15.00)","Snow Mittens ($20.00)","Hot Plate Protectors ($30.00)","Oh Canada ($25.00)"];
+      var labels= document.getElementsByTagName("label"); //adding equivalent array of label elements
+    //add function to make list form array  
+    function calcProducts() {
+       for (var i=0;i<4;i++);{
+        labels[i] = products[i];
+      }
+      }
+      if (window.addEventListener){
+        window.addEventListener ("load", calcProducts, false);
+      }
+      else if (window.attachEvent) {
+        window.attachEvent("onload", calcProducts);
+      }
+      //add function to add values of checked boxes
+  function calcTotal() {
+  var itemTotal = 0;
+  var salesTaxRate = 0.06;
+  var items =document.getElementsByTagName("input");
+    for (var i = 0; i < 5; i++){
+    if (items[i].checked){
+      itemTotal += (items[i].value * 1);
+    }
+  }
+ itemTotal *= 1+ salesTaxRate;
+document.getElementById("total").innerHTML="Your order total is $" +itemTotal.toFixed(2);
+}
+//adds backward compatable event listener
+var submitButton =document.getElementById("sButton");
+if (submitButton.addEventListener){
+  submitButton.addEventListener("click",calcTotal,false);
+}
+else if(submitButton.attachEvent){
+  submitButton.attachEvent("onclick",calcTotal);
+}
+</script>
+      <footer>
+         <p>MittensforKittens&bull; Salisbury, Maryland</p>
+      </footer>
+    <!--
+      below I source my new js page that does the calculations for my products  
+	-->  
+</body>
+</html>
